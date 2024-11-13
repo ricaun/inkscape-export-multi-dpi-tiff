@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+    <name>Export Multi-Page Tiff</name>
+    <id>ricaun.export_multi_page_tiff</id>
+
+    <param name="tab" type="notebook">
+        <page name="options" gui-text="Options">
+            <param name="compression" type="optiongroup" appearance="combo" gui-text="Compression:">
+                <option value="">None</option>
+                <option value="tiff_ccitt">CCITT</option>
+                <option value="group3">Group 3</option>
+                <option value="group4">Group 4</option>
+                <option value="tiff_jpeg">JPEG</option>
+                <option value="tiff_deflate">Deflate</option>
+                <option value="tiff_sgilog">SGI Log</option>
+                <option value="tiff_sgilog24">SGI Log 24</option>
+                <option value="tiff_raw_16">Raw 16</option>
+            </param>
+            <param name="dpi" type="float" min="1" max="3000" gui-text="DPI:" gui-description="File resolution, in DPI.">96</param>
+            <param name="dpi_10" type="bool" gui-text="1.0x">true</param>
+            <param name="dpi_15" type="bool" gui-text="1.5x">true</param>
+            <param name="dpi_20" type="bool" gui-text="2.0x">true</param>
+            <param name="dpi_30" type="bool" gui-text="3.0x">true</param>
+            <param name="dpi_40" type="bool" gui-text="4.0x">true</param>
+        </page>
+    </param>
+
+    <output is_exported="true">
+        <extension>.tiff</extension>
+        <mimetype>image/tiff</mimetype>
+        <filetypename>Multi-Page TIFF (*.tiff)</filetypename>
+        <filetypetooltip>SVG to Multi-Page Tiff file format</filetypetooltip>
+    </output>
+
+    <script>
+        <command location="inx" interpreter="python">export_multi_page_tiff.py</command>
+    </script>
+</inkscape-extension>
