@@ -1,10 +1,24 @@
 # inkscape-export-multi-page-tiff
 
-Inkscape Extension to Export Multi-Page TIFF files
+Inkscape Extension to Export Multi-Page TIFF files with options for 1.0, 1.5, 2.0, 3.0 and/or 4.0 scale for the base DPI.
 
 ## Description
 
-...
+The `Multi-Page TIFF (*.tiff)` is available in the Export section.
+
+### Single File
+
+![Export](/assets/Export.png)
+
+### Batch Export
+
+![Export-Batch](/assets/Export-Batch.png)
+
+### Options
+
+Options allow to select the compression and the base DPI of the image, and five scale options base in the DPI.
+
+![Export-Options](/assets/Export-Options.png)
 
 ## Install
 
