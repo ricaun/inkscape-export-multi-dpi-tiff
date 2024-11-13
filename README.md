@@ -8,7 +8,7 @@ Inkscape Extension to Export Multi-Page TIFF files
 
 ## Install
 
-Download from [Inkscape's Extensions page](https://inkscape.org/ricaun/inkscape-export-multi-page-tiff) or [Latest release](../../releases/latest).
+Download from [Inkscape's Extensions page](https://inkscape.org/~ricaun/%E2%98%85export-multi-page-tiff) or [Latest release](../../releases/latest).
 
 ### Windows
 Copy extension files `export_multi_page_tiff.inx` and `export_multi_page_tiff.py` into `%appdata%/inkscape/extensions` or the path shown in Inkscape preferences.
