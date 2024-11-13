@@ -1,5 +1,8 @@
 # inkscape-export-multi-page-tiff
 
+[![inkscape](https://img.shields.io/badge/inkscape-1.4-blue?logo=inkscape)](https://inkscape.org)
+[![License MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 Inkscape Extension to Export Multi-Page TIFF files with options for 1.0, 1.5, 2.0, 3.0 and/or 4.0 scale for the base DPI.
 
 ## Description
