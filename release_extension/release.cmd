@@ -2,9 +2,11 @@
 setlocal
 
 rem Set the folder and output ZIP file paths using relative paths
-set "source_folder=..\export_multi_page_tiff\*"
-set "zip_file=\Release\export_multi_page_tiff.zip"
-set "md5_file=%zip_file%.md5"
+set "name=export_multi_page_tiff"
+set "zip_name=%name%.zip"
+set "source_folder=..\%name%\*"
+set "zip_file=\Release\%zip_name%"
+set "md5_file=\Release\%name%.md5"
 
 rem Delete the existing Release directory and its contents, if it exists
 if exist "%~dp0\Release" (
@@ -24,13 +26,14 @@ if %errorlevel% neq 0 (
     exit /b %errorlevel%
 )
 
-rem Generate MD5 hash of the ZIP file
-echo Generating MD5 hash...
-certutil -hashfile "%~dp0%zip_file%" MD5 > "%~dp0%md5_file%"
+rem Generate MD5 hash of the ZIP file using PowerShell's Get-FileHash cmdlet and format the output
+echo Generating MD5 hash with filename...
+powershell -Command "Get-FileHash -Path '%~dp0%zip_file%' -Algorithm MD5 | Select-Object -ExpandProperty Hash | ForEach-Object { $_.ToLower() + '  ' + '%zip_name%' } | Out-File -FilePath '%~dp0%md5_file%' -encoding ascii" 
+
 if %errorlevel% neq 0 (
     echo Failed to generate MD5 hash.
     exit /b %errorlevel%
 )
 
-echo ZIP file and MD5 hash created successfully in the Release folder.
+echo ZIP file and MD5 hash created successfully.
 endlocal

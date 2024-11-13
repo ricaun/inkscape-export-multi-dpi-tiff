@@ -10,13 +10,13 @@ First is necessary to enable the checksums in the user profile, just add some te
 
 ## Windows
 
-To create the checksums in windows the code below is used in the `zip` file.
+To create the `MD5` checksums in windows the code below is used in the `zip` file.
 
-```
-certutil -hashfile export_multi_page_tiff.zip MD5 > export_multi_page_tiff.zip.md5
+```cmd
+powershell -Command "Get-FileHash -Path 'export_multi_page_tiff.zip' -Algorithm MD5 | Select-Object -ExpandProperty Hash | ForEach-Object { $_.ToLower() + '  ' + 'export_multi_page_tiff.zip' } | Out-File -FilePath 'export_multi_page_tiff.md5' -encoding ascii"
 ```
 
-This generate the `export_multi_page_tiff.zip.md5` to be uploaded with the `zip` file in the [inkscape extensions](https://inkscape.org/develop/extensions/)
+This generate the `export_multi_page_tiff.md5` to be uploaded with the `zip` file in the [inkscape extensions](https://inkscape.org/develop/extensions/)
 
 ![image](https://github.com/user-attachments/assets/22121477-cdad-47f3-81bf-181ec75aa508)
 
