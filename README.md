@@ -27,6 +27,12 @@ Options allow to select the compression and the base DPI of the image, and five 
 
 Download from [Inkscape's Extensions page](https://inkscape.org/~ricaun/%E2%98%85export-multi-page-tiff) or [Latest release](../../releases/latest).
 
+### Extension Manager
+
+In the `Extension Manager` and search for `tiff`, and install the package `Export Multi-Page Tiff` author `ricaun`.
+
+![Manage-Extensions](/assets/Manage-Extensions.png)
+
 ### Windows
 Copy extension files `export_multi_page_tiff.inx` and `export_multi_page_tiff.py` into `%appdata%/inkscape/extensions` or the path shown in Inkscape preferences.
 See Edit > Preferences > System: User extensions.
