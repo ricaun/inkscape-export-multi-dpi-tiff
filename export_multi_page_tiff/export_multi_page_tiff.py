@@ -29,16 +29,38 @@ Convert SVT to Multi-Page Tiff using Output extension.
 ### Versions
 ## 1.0.0 - 2024-11-13 - Initial Release
 ## 1.0.1 - 2024-11-13 - Change python license to comment.
+## 1.1.0 - 2024-11-14 - Add `take_multiple_snapshot` to improve speed.
 
-__version__ = "1.0.1"
+__version__ = "1.1.0"
 
 import os
 import io
 import inkex
 
 from PIL import Image, TiffImagePlugin
-from inkex.command import take_snapshot
+from inkex.command import write_svg, inkscape
 from inkex.extensions import TempDirMixin, OutputExtension
+
+def take_multiple_snapshot(svg, dirname, name="snapshot", ext="png", dpis=[96,144,192,288,384], **kwargs):
+	"""
+	Take multiple snapshot of the given svg file.
+
+	Resulting filenames is yielded back, after generator finishes, the
+	files is deleted so you must deal with the file inside the for loop.
+	"""
+	
+	svg_file = write_svg(svg, dirname, name + ".svg")
+	ext_files = [os.path.join(dirname, name + str(dpi) + '.' + str(ext).lower()) for dpi in dpis]
+
+	actions = " ".join([
+		f"export-filename:{file}; export-dpi:{dpi}; export-do;"
+		for file, dpi in zip(ext_files, dpis)
+	])
+
+	inkscape(
+		svg_file, actions=actions, **kwargs
+	)
+	return ext_files
 
 class MultiPageTiffOutput(OutputExtension):
 	def add_arguments(self, pars):
@@ -58,18 +80,19 @@ class MultiPageTiffOutput(OutputExtension):
 		d = self.options.dpi
 		images = []
 		dpis = []
-		if self.options.dpi_10: dpis.append((d,d))
-		if self.options.dpi_15: dpis.append((d*1.5,d*1.5))
-		if self.options.dpi_20: dpis.append((d*2.0,d*2.0))
-		if self.options.dpi_30: dpis.append((d*3.0,d*3.0))
-		if self.options.dpi_40: dpis.append((d*4.0,d*4.0))
+		if self.options.dpi_10: dpis.append(d)
+		if self.options.dpi_15: dpis.append(d*1.5)
+		if self.options.dpi_20: dpis.append(d*2.0)
+		if self.options.dpi_30: dpis.append(d*3.0)
+		if self.options.dpi_40: dpis.append(d*4.0)
 		
-		for dpi in dpis:
-			filename = take_snapshot(
-				self.document,
-				dirname=self.tempdir,
-				dpi=dpi,
-			)
+		filenames = take_multiple_snapshot(
+			self.document,
+			dirname=self.tempdir,
+			dpis=dpis,
+		)
+		
+		for filename in filenames:
 			img = Image.open(filename)
 			images.append(img)
 
