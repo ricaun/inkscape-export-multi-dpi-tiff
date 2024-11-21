@@ -23,15 +23,16 @@
 # SOFTWARE.
 
 """
-Convert SVT to Multi-Page Tiff using Output extension.
+Convert SVG to Multi-DPI Tiff using Output extension.
 """
 
 ### Versions
 ## 1.0.0 - 2024-11-13 - Initial Release
 ## 1.0.1 - 2024-11-13 - Change python license to comment.
 ## 1.1.0 - 2024-11-14 - Add `take_multiple_snapshot` to improve speed.
+## 1.2.0 - 2024-11-20 - Rename Multi-Page to Multi-DPI
 
-__version__ = "1.1.0"
+__version__ = "1.2.0"
 
 import os
 import io
@@ -67,11 +68,11 @@ class MultiPageTiffOutput(OutputExtension):
 		pars.add_argument("--tab")
 		pars.add_argument("--compression", default="tiff_deflate")
 		# Dpi
-		pars.add_argument("--dpi_10", type=inkex.Boolean, default=True)
-		pars.add_argument("--dpi_15", type=inkex.Boolean, default=True)
-		pars.add_argument("--dpi_20", type=inkex.Boolean, default=True)
-		pars.add_argument("--dpi_30", type=inkex.Boolean, default=True)
-		pars.add_argument("--dpi_40", type=inkex.Boolean, default=True)
+		pars.add_argument("--dpi_100", type=inkex.Boolean, default=True)
+		pars.add_argument("--dpi_150", type=inkex.Boolean, default=True)
+		pars.add_argument("--dpi_200", type=inkex.Boolean, default=True)
+		pars.add_argument("--dpi_300", type=inkex.Boolean, default=True)
+		pars.add_argument("--dpi_400", type=inkex.Boolean, default=True)
 		pars.add_argument("-i", "--dpi", type=float, default=96.0)
 
 	def save(self, stream):
@@ -80,11 +81,11 @@ class MultiPageTiffOutput(OutputExtension):
 		d = self.options.dpi
 		images = []
 		dpis = []
-		if self.options.dpi_10: dpis.append(d)
-		if self.options.dpi_15: dpis.append(d*1.5)
-		if self.options.dpi_20: dpis.append(d*2.0)
-		if self.options.dpi_30: dpis.append(d*3.0)
-		if self.options.dpi_40: dpis.append(d*4.0)
+		if self.options.dpi_100: dpis.append(d)
+		if self.options.dpi_150: dpis.append(d*1.5)
+		if self.options.dpi_200: dpis.append(d*2.0)
+		if self.options.dpi_300: dpis.append(d*3.0)
+		if self.options.dpi_400: dpis.append(d*4.0)
 		
 		filenames = take_multiple_snapshot(
 			self.document,

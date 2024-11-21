@@ -1,13 +1,14 @@
-# inkscape-export-multi-page-tiff
+# inkscape-export-multi-dpi-tiff
 
 [![inkscape](https://img.shields.io/badge/inkscape-1.4-blue?logo=inkscape)](https://inkscape.org)
 [![License MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![inkscape extension](https://img.shields.io/badge/inkscape-extension-black?logo=inkscape)](https://inkscape.org/gallery/item/54143)
 
-Inkscape Extension to Export Multi-Page TIFF files with options for 1.0, 1.5, 2.0, 3.0 and/or 4.0 scale for the base DPI.
+Inkscape Extension to Export Multi-DPI TIFF files with options for 1.0, 1.5, 2.0, 3.0 and/or 4.0 scale for the base DPI.
 
 ## Description
 
-The `Multi-Page TIFF (*.tiff)` is available in the Export section.
+The `Multi-DPI TIFF (*.tiff)` is available in the Export section.
 
 ### Single File
 
@@ -25,20 +26,20 @@ Options allow to select the compression and the base DPI of the image, and five 
 
 ## Install
 
-Download from [Inkscape's Extensions page](https://inkscape.org/~ricaun/%E2%98%85export-multi-page-tiff) or [Latest release](../../releases/latest).
+Download from [Inkscape's Extensions page](https://inkscape.org/gallery/item/54143) or [Latest release](../../releases/latest).
 
 ### Extension Manager
 
-In the `Extension Manager` and search for `tiff`, and install the package `Export Multi-Page Tiff` author `ricaun`.
+In the `Extension Manager` and search for `tiff`, and install the package `Export Multi-DPI Tiff` author `ricaun`.
 
 ![Manage-Extensions](/assets/Manage-Extensions.png)
 
 ### Windows
-Copy extension files `export_multi_page_tiff.inx` and `export_multi_page_tiff.py` into `%appdata%/inkscape/extensions` or the path shown in Inkscape preferences.
+Copy extension files `export_multi_dpi_tiff.inx` and `export_multi_dpi_tiff.py` into `%appdata%/inkscape/extensions` or the path shown in Inkscape preferences.
 See Edit > Preferences > System: User extensions.
 
 ### Linux
-Copy extension files `export_multi_page_tiff.inx` and `export_multi_page_tiff.py` into `~/.config/inkscape/extensions`.
+Copy extension files `export_multi_dpi_tiff.inx` and `export_multi_dpi_tiff.py` into `~/.config/inkscape/extensions`.
 
 ## License
 

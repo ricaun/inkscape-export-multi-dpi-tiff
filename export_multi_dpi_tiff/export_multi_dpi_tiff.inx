@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
-    <name>Export Multi-Page Tiff</name>
-    <id>ricaun.export_multi_page_tiff</id>
+    <name>Export Multi-DPI Tiff</name>
+    <id>ricaun.export_multi_dpi_tiff</id>
 
     <param name="tab" type="notebook">
         <page name="options" gui-text="Options">
@@ -17,22 +17,22 @@
                 <option value="tiff_raw_16">Raw 16</option>
             </param>
             <param name="dpi" type="float" min="1" max="3000" gui-text="DPI:" gui-description="File resolution, in DPI.">96</param>
-            <param name="dpi_10" type="bool" gui-text="1.0x">true</param>
-            <param name="dpi_15" type="bool" gui-text="1.5x">true</param>
-            <param name="dpi_20" type="bool" gui-text="2.0x">true</param>
-            <param name="dpi_30" type="bool" gui-text="3.0x">true</param>
-            <param name="dpi_40" type="bool" gui-text="4.0x">true</param>
+            <param name="dpi_100" type="bool" gui-text="DPI: 100%">true</param>
+            <param name="dpi_150" type="bool" gui-text="DPI: 150%">true</param>
+            <param name="dpi_200" type="bool" gui-text="DPI: 200%">true</param>
+            <param name="dpi_300" type="bool" gui-text="DPI: 300%">true</param>
+            <param name="dpi_400" type="bool" gui-text="DPI: 400%">true</param>
         </page>
     </param>
 
     <output is_exported="true">
         <extension>.tiff</extension>
         <mimetype>image/tiff</mimetype>
-        <filetypename>Multi-Page TIFF (*.tiff)</filetypename>
-        <filetypetooltip>SVG to Multi-Page Tiff file format</filetypetooltip>
+        <filetypename>Multi-DPI TIFF (*.tiff)</filetypename>
+        <filetypetooltip>SVG to Multi-DPI Tiff file format</filetypetooltip>
     </output>
 
     <script>
-        <command location="inx" interpreter="python">export_multi_page_tiff.py</command>
+        <command location="inx" interpreter="python">export_multi_dpi_tiff.py</command>
     </script>
 </inkscape-extension>

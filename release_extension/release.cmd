@@ -2,7 +2,7 @@
 setlocal
 
 rem Set the folder and output ZIP file paths using relative paths
-set "name=export_multi_page_tiff"
+set "name=export_multi_dpi_tiff"
 set "zip_name=%name%.zip"
 set "source_folder=..\%name%\*"
 set "zip_file=\Release\%zip_name%"

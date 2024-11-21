@@ -13,17 +13,17 @@ First is necessary to enable the checksums in the user profile, just add some te
 To create the `MD5` checksums in windows the code below is used in the `zip` file.
 
 ```cmd
-powershell -Command "Get-FileHash -Path 'export_multi_page_tiff.zip' -Algorithm MD5 | Select-Object -ExpandProperty Hash | ForEach-Object { $_.ToLower() + '  ' + 'export_multi_page_tiff.zip' } | Out-File -FilePath 'export_multi_page_tiff.md5' -encoding ascii"
+powershell -Command "Get-FileHash -Path 'export_multi_dpi_tiff.zip' -Algorithm MD5 | Select-Object -ExpandProperty Hash | ForEach-Object { $_.ToLower() + '  ' + 'export_multi_dpi_tiff.zip' } | Out-File -FilePath 'export_multi_dpi_tiff.md5' -encoding ascii"
 ```
 
-This generate the `export_multi_page_tiff.md5` to be uploaded with the `zip` file in the [inkscape extensions](https://inkscape.org/develop/extensions/)
+This generate the `export_multi_dpi_tiff.md5` to be uploaded with the `zip` file in the [inkscape extensions](https://inkscape.org/develop/extensions/)
 
 ![image](https://github.com/user-attachments/assets/22121477-cdad-47f3-81bf-181ec75aa508)
 
 
 ## Release Automation
 
-The [release.cmd](release.cmd) file create the `zip` file using the `export_multi_page_tiff` folder and create the `md5` checksums for the `zip` file.
+The [release.cmd](release.cmd) file create the `zip` file using the `export_multi_dpi_tiff` folder and create the `md5` checksums for the `zip` file.
 
 The files is created inside the `Release` folder.
 
