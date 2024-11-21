@@ -2,7 +2,7 @@
 
 [![inkscape](https://img.shields.io/badge/inkscape-1.4-blue?logo=inkscape)](https://inkscape.org)
 [![License MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![inkscape extension](https://img.shields.io/badge/inkscape-extension-black?logo=inkscape)](https://inkscape.org/gallery/item/54143)
+[![inkscape extension](https://img.shields.io/badge/inkscape-extension-blue?logo=inkscape)](https://inkscape.org/gallery/item/54143)
 
 Inkscape Extension to Export Multi-DPI TIFF files with options for 1.0, 1.5, 2.0, 3.0 and/or 4.0 scale for the base DPI.
 
